@@ -39,18 +39,24 @@ public class Main {
             int action = getNumberInputInRange(scanner, 5);
             switch (action) {
                 case 1 -> {
-                    System.out.println("Enter a number of hall:");
-                    int hallNumber = getNumberInputInRange(scanner, 5);
-                    System.out.println("Enter a number of row:");
-                    int row = getNumberInputInRange(scanner, 10);
-                    System.out.println("Enter a number of seats:");
-                    int numSeats = getNumberInputInRange(scanner, 20);
-                    int[] seats = new int[numSeats];
-                    for (int i = 0; i < numSeats; i++) {
-                        System.out.println("Enter a number of seat:");
-                        seats[i] = getNumberInputInRange(scanner, 20);
+                    
+                    try {
+                        System.out.println("Enter a number of hall:");
+                        int hallNumber = getNumberInputInRange(scanner, 5);
+                        System.out.println("Enter a number of row:");
+                        int row = getNumberInputInRange(scanner, 10);
+                        System.out.println("Enter a number of seats:");
+                        int numSeats = getNumberInputInRange(scanner, 20);
+                        int[] seats = new int[numSeats];
+                        for (int i = 0; i < numSeats; i++) {
+                            System.out.println("Enter a number of seat:");
+                            seats[i] = getNumberInputInRange(scanner, 20);
+                        }
+                        cinema.bookSeats(hallNumber, row, seats);
+                    } catch (PlaceTakenException e) {
+                        System.out.println(e.getMessage());
                     }
-                    cinema.bookSeats(hallNumber, row, seats);
+
                 }
                 case 2 -> {
                     System.out.println("Enter a number of hall:");
